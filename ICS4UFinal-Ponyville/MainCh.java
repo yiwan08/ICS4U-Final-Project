@@ -14,7 +14,7 @@ public class MainCh extends SuperSmoothMover
      */
     public void act()
     {
-        // Add your action code here.
+        move();
     }
     
     public void move(){
