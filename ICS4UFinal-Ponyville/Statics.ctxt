@@ -1,10 +1,13 @@
 #BlueJ class context
 comment0.target=Statics
-comment0.text=\r\n\ A\ class\ that\ stores\ static\ variables,\ could\ potentially\ be\ used\ for\ game\ saves.\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ 0.1\r\n
+comment0.text=\n\ A\ class\ that\ stores\ static\ variables,\ could\ potentially\ be\ used\ for\ game\ saves.\n\ \n\ @author\ Xuanxi\ Jiang\n\ @version\ 0.1\n
 comment1.params=
-comment1.target=int\ getPlayerCoordX()
-comment1.text=\r\n\ returns\ player's\ X\ coordinate\ on\ grid\r\n\ \r\n\ @return\ int\ \ returns\ player's\ X\ coordinate\ on\ grid\r\n
+comment1.target=int\ getLevel()
+comment1.text=\n\ returns\ current\ level\ (1,\ 2,\ 3);\n\ \n\ @return\ int\ \ The\ current\ level\n
 comment2.params=
-comment2.target=int\ getPlayerCoordY()
-comment2.text=\r\n\ returns\ player's\ Y\ coordinate\ on\ grid\r\n\ \r\n\ @return\ int\ \ returns\ player's\ Y\ coordinate\ on\ grid\r\n
-numComments=3
+comment2.target=int\ getPlayerCoordX()
+comment2.text=\n\ returns\ player's\ X\ coordinate\ on\ grid\n\ \n\ @return\ int\ \ returns\ player's\ X\ coordinate\ on\ grid\n
+comment3.params=
+comment3.target=int\ getPlayerCoordY()
+comment3.text=\n\ returns\ player's\ Y\ coordinate\ on\ grid\n\ \n\ @return\ int\ \ returns\ player's\ Y\ coordinate\ on\ grid\n
+numComments=4
