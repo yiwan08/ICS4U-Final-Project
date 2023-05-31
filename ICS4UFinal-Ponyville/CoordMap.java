@@ -18,12 +18,6 @@ public class CoordMap{
     
     //Constructor: map id, map
     public CoordMap(int mapId, int xsiz, int ysiz, int xpix, int ypix){
-        //Example: 1.txt, 2.txt
-        /*Terrain
-         * v
-           1 2 3
-           2 2 3
-           */
         this.gridX = xsiz; this.gridY = ysiz;
         this.xpix = xpix; this.ypix = ypix;
         //assume 20*9, pixX is 48, pixY is 45.
@@ -45,8 +39,11 @@ public class CoordMap{
         */
     }
     
-    public Node[][] getNodeMap()
-    {
+    public int[] getSz(){
+        return new int[]{pixX, pixY};
+    }
+    
+    public Node[][] getNodeMap(){
         return mp;
     }
 
@@ -57,8 +54,7 @@ public class CoordMap{
     }
     
     //The method below is added by George
-    public Node getNode(int x, int y)
-    {
+    public Node getNode(int x, int y){
         return mp[y][x];
     }
     
