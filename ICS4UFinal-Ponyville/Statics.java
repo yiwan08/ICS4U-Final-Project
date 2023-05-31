@@ -18,21 +18,17 @@ public class Statics{
         return lV;
     }
     
-    /**
-     * returns player's X coordinate on grid
-     * 
-     * @return int  returns player's X coordinate on grid
-     */
-    public static int getPlayerCoordX(){
-        return ppX;
+    public static void setPlayerCoords(int[] coord){
+        ppX = coord[0];
+        ppY = coord[1];
     }
     
     /**
-     * returns player's Y coordinate on grid
+     * returns player's X and Y coordinate on grid
      * 
-     * @return int  returns player's Y coordinate on grid
+     * @return int[2]  returns player's X and Y coordinate on grid, respectively
      */
-    public static int getPlayerCoordY(){
-        return ppY;
+    public static int[] getPlayerCoords(){
+        return new int[]{ppX, ppY};
     }
 }

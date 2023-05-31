@@ -15,15 +15,10 @@ public class ShaderBox extends Actor{
         blk.fillRect(0, 0, xsz, ysz);
         realImg = new GreenfootImage(blk);
         this.setImage(blk);
-        iluminate();
     }
     
-    public void act(){
-        
-    }
-    
-    public void iluminate(){
-        realImg = new GreenfootImage(SparkleEngine.setTransparency(blk, 70));
+    public void iluminate(int perc){
+        realImg = new GreenfootImage(SparkleEngine.setTransparency(blk, perc));
         this.setImage(realImg);
     }
 }

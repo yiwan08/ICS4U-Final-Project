@@ -64,39 +64,19 @@ public class CoordMap{
         return mp[y][x].getT();
     }
     
-    public int getMaxX(){
-        return gridX;
+    public int[] getMaxes(){
+        return new int[]{gridX, gridY};
     }
     
-    public int getMaxY(){
-        return gridY;
+    //input value is zero-indexed, get pixel position from grid value
+    public int[] getPixes(int[] coord){
+        return new int[]{coord[0]*pixX + pixX/2, coord[1]*pixY + pixY/2};
     }
     
-    //input value is zero-indexed, get pixel x position from grid x value
-    public int getPixX(int x){
-        return pixX*x+pixX/2;
+    //given a pixel x and y, return corresponding x and y of grid, 0-positioned
+    public int[] getMaps(int[] coord){
+        return new int[]{coord[0]/pixX, coord[1]/pixY};
     }
-    
-    //input value is zero-indexed, get pixel y position from grid y value
-    public int getPixY(int y){
-        return pixY*y+pixY/2;
-    }
-    
-    //given a pixel x, return corresponding x of grid, 0-positioned
-    public int getMapX(int px){
-        return px/pixX;
-    }
-    
-    //given a pixel y, return corresponding y of grid, 0-positioned
-    public int getMapY(int py){
-        return py/pixY;
-    }
-    
-    
-    
-    //getTerrian(getMapX(this.getX()), getMapY(this.getY()));
-    
-    
     
     //Fastreader
     public static class FastReader {
