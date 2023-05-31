@@ -20,6 +20,7 @@ public class MainWorld extends World{
                 addObject(sb[i][j] = new ShaderBox(mp.getSz()[0]-1, mp.getSz()[1]-1), mp.getPixX(i), mp.getPixY(j));
             }
         }
+        addObject(new MainCh(), 400, 300);
     }
     
     private void update(){
