@@ -11,6 +11,26 @@ import greenfoot.*;
  */
 public class SparkleEngine{
     /**
+     * Set the transparency of an image according to brt.
+     * 
+     * @param img   The given image
+     * @param perc  The percentage of transparency, ranges from [0 to 100], 0 = fully transparent.
+     * @return GreenfootImage   The processed input image that is either shaded or brightened by brt.
+     */
+    public static GreenfootImage setTransparency(GreenfootImage img, int perc){
+        if(perc<=0 || perc>100)
+            return img;
+        GreenfootImage ret = new GreenfootImage(img);
+        for(int x=0; x<ret.getWidth(); x++){
+            for(int y=0; y<ret.getHeight(); y++){
+                Color cc = ret.getColorAt(x, y);
+                ret.setColorAt(x, y, new Color(cc.getRed(), cc.getGreen(), cc.getBlue(), ((100-perc)*255)/100));
+            }
+        }
+        return ret;
+    }
+    
+    /**
      * Set the brightness of an image according to brt.
      * 
      * @param img   The given image

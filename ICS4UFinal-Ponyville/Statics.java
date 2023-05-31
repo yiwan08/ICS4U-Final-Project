@@ -10,6 +10,15 @@ public class Statics{
     private static int lV, ppX, ppY;
     
     /**
+     * returns current level (1, 2, 3);
+     * 
+     * @return int  The current level
+     */
+    public static int getLevel(){
+        return lV;
+    }
+    
+    /**
      * returns player's X coordinate on grid
      * 
      * @return int  returns player's X coordinate on grid
