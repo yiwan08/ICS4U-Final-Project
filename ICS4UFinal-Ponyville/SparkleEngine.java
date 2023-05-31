@@ -305,7 +305,7 @@ public class SparkleEngine{
      * @param toY       The Y coordinate of target object
      * @return int      Returns the manhatten distance between from object and to object.
      */
-    public static int ManhattenDistance(int fromX, int fromY, int toX, int toY){
-        return Math.abs(fromX-toX)+Math.abs(fromY-toY);
+    public static int ManhattenDistance(int[] from, int[] to){
+        return Math.abs(from[0]-to[0])+Math.abs(from[1]-to[1]);
     }
 }

@@ -14,6 +14,7 @@ public class MainCh extends SuperSmoothMover
      */
     public void act()
     {
+        this.setImage("TheHeart.png");
         move();
     }
     
