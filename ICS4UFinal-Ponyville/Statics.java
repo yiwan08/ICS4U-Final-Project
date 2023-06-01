@@ -18,6 +18,11 @@ public class Statics{
         return lV;
     }
     
+    /**
+     * sets the current coordinate of player
+     * 
+     * @param coord     The coordinate of player
+     */
     public static void setPlayerCoords(int[] coord){
         ppX = coord[0];
         ppY = coord[1];

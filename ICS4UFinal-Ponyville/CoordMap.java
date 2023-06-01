@@ -20,9 +20,7 @@ public class CoordMap{
     public CoordMap(int mapId, int xsiz, int ysiz, int xpix, int ypix){
         this.gridX = xsiz; this.gridY = ysiz;
         this.xpix = xpix; this.ypix = ypix;
-        //assume 20*9, pixX is 48, pixY is 45.
         pixX = xpix/xsiz; pixY = ypix/ysiz;
-        //System.out.println(pixY);
         mp = new Node[ysiz][xsiz];
         /*
          * Change this part to read auto-generated stuff.
