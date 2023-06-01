@@ -39,4 +39,6 @@ public class MainCh extends SuperSmoothMover{
         setLocation(realPos[0],realPos[1]);
         Statics.setPlayerCoords(new int[]{gridPos[0], gridPos[1]});
     }
+    
+    
 }
