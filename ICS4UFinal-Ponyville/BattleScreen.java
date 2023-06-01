@@ -3,11 +3,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class BattleScreen here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Lu
+ * @version 2023/6/1 11:52
  */
 public class BattleScreen extends Screen
 {
+    
+    public BattleScreen(){
+        
+    }
     /**
      * Act - do whatever the BattleScreen wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,4 +20,7 @@ public class BattleScreen extends Screen
     {
         // Add your action code here.
     }
+    
+    
+    
 }

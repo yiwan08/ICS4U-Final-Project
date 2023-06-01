@@ -34,4 +34,6 @@ public class MainCh extends SuperSmoothMover
         }
         setLocation(x,y);
     }
+    
+    
 }
