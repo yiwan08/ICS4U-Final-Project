@@ -19,6 +19,7 @@ public class SideWorld extends World
         super(1200, 675, 1, false); 
         
         addObject(new HitBox(), 400, 400);
-        
+        addObject(new BattleScreen(), 800, 400);
+        addObject(new Boss(), 600, 150);
     }
 }

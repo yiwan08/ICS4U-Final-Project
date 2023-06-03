@@ -8,17 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LightBall extends StraightDart
 {
-    private GreenfootImage lightBall, panel;
+    private GreenfootImage lightBall;
     private Color color;
     private boolean side;//This boolean will determine if this lightBall is from enemy
-    public LightBall(boolean side){
+    public LightBall(boolean side, int direction){
         lightBall = new GreenfootImage("RedBall.png");
         lightBall.scale(15,15);
         setImage(lightBall);
         this.side = side;
-        color = new Color(0,0,0);
-        panel.drawRect(400, 300, 100, 100);
-        
+        setRotation(direction);
         
     }
     /**
@@ -27,8 +25,7 @@ public class LightBall extends StraightDart
      */
     public void act()
     {
-        setRotation(270);
-        move(2);
+        move(2.8);
     }
     
     public boolean getSide(){
