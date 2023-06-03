@@ -10,6 +10,15 @@ public class Statics{
     private static int lV, ppX, ppY;
     
     /**
+     * sets the current level (map) of player. (1, 2, 3)
+     * 
+     * @param lv    The current level.
+     */
+    public static void setLevel(int lv){
+        lV = lv;
+    }
+    
+    /**
      * returns current level (1, 2, 3);
      * 
      * @return int  The current level
