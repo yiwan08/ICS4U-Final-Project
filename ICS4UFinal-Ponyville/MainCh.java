@@ -74,7 +74,7 @@ public class MainCh extends SuperSmoothMover{
     private boolean detect(int[] gridPos){
         xx = 0;
         if(Greenfoot.isKeyDown("w")){
-            if(gridPos[1]-1>=0){
+            if(gridPos[1]-1>=1){//Temporary fix, change when map is implemented
                 gridPos[1]--; dir = 2;
                 moving = true;
             }

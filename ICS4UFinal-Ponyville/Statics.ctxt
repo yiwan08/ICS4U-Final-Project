@@ -1,13 +1,16 @@
 #BlueJ class context
 comment0.target=Statics
 comment0.text=\r\n\ A\ class\ that\ stores\ static\ variables,\ could\ potentially\ be\ used\ for\ game\ saves.\r\n\ \r\n\ @author\ Xuanxi\ Jiang\r\n\ @version\ 0.1\r\n
-comment1.params=
-comment1.target=int\ getLevel()
-comment1.text=\r\n\ returns\ current\ level\ (1,\ 2,\ 3);\r\n\ \r\n\ @return\ int\ \ The\ current\ level\r\n
-comment2.params=coord
-comment2.target=void\ setPlayerCoords(int[])
-comment2.text=\r\n\ sets\ the\ current\ coordinate\ of\ player\r\n\ \r\n\ @param\ coord\ \ \ \ \ The\ coordinate\ of\ player\r\n
-comment3.params=
-comment3.target=int[]\ getPlayerCoords()
-comment3.text=\r\n\ returns\ player's\ X\ and\ Y\ coordinate\ on\ grid\r\n\ \r\n\ @return\ int[2]\ \ returns\ player's\ X\ and\ Y\ coordinate\ on\ grid,\ respectively\r\n
-numComments=4
+comment1.params=lv
+comment1.target=void\ setLevel(int)
+comment1.text=\r\n\ sets\ the\ current\ level\ (map)\ of\ player.\ (1,\ 2,\ 3)\r\n\ \r\n\ @param\ lv\ \ \ \ The\ current\ level.\r\n
+comment2.params=
+comment2.target=int\ getLevel()
+comment2.text=\r\n\ returns\ current\ level\ (1,\ 2,\ 3);\r\n\ \r\n\ @return\ int\ \ The\ current\ level\r\n
+comment3.params=coord
+comment3.target=void\ setPlayerCoords(int[])
+comment3.text=\r\n\ sets\ the\ current\ coordinate\ of\ player\r\n\ \r\n\ @param\ coord\ \ \ \ \ The\ coordinate\ of\ player\r\n
+comment4.params=
+comment4.target=int[]\ getPlayerCoords()
+comment4.text=\r\n\ returns\ player's\ X\ and\ Y\ coordinate\ on\ grid\r\n\ \r\n\ @return\ int[2]\ \ returns\ player's\ X\ and\ Y\ coordinate\ on\ grid,\ respectively\r\n
+numComments=5

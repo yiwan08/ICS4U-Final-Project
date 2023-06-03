@@ -15,6 +15,7 @@ public class CoordMap{
     private int gridX, gridY; //number of grids
     private int xpix, ypix; //number of pixels in the x and y axis
     private int pixX, pixY; //Number of pixels per grid
+    private int topOffset; //Offset to prevent bottom to be not covered by grid.
     
     //Constructor: map id, map
     public CoordMap(int mapId, int xsiz, int ysiz, int xpix, int ypix){
@@ -22,6 +23,22 @@ public class CoordMap{
         this.xpix = xpix; this.ypix = ypix;
         pixX = xpix/xsiz; pixY = ypix/ysiz;
         mp = new Node[ysiz][xsiz];
+        //to prevent top from offset.
+        topOffset = 4;
+        /**
+         * Writing maps:
+         * 
+         * format:
+         *      1 2 1 1 1 3 
+         *      1 2 2 1 1 2
+         *      1 3 2 1 1 1
+         * excetera.
+         * 
+         * Corresponding values:
+         * 0   - clear
+         * 1   - blocked
+         * 2+n - item, numbered starting from n=0 (if 2, means item 0, etc.)
+         */
         /*
          * Change this part to read auto-generated stuff.
         try{
@@ -44,22 +61,10 @@ public class CoordMap{
     public Node[][] getNodeMap(){
         return mp;
     }
-
-    public int getType(int x, int y){
-        if(y>=gridY || x>=gridX)
-            return -1;
-        return mp[y][x].getT();
-    }
     
     //The method below is added by George
     public Node getNode(int x, int y){
         return mp[y][x];
-    }
-    
-    public int getSlow(int x, int y){
-        if(y>=gridY || x>=gridX)
-            return -1;
-        return mp[y][x].getT();
     }
     
     public int[] getMaxes(){
@@ -68,12 +73,12 @@ public class CoordMap{
     
     //input value is zero-indexed, get pixel position from grid value
     public int[] getPixes(int[] coord){
-        return new int[]{coord[0]*pixX + pixX/2, coord[1]*pixY + pixY/2};
+        return new int[]{coord[0]*pixX + pixX/2, coord[1]*pixY + pixY/2 + topOffset};
     }
     
     //given a pixel x and y, return corresponding x and y of grid, 0-positioned
     public int[] getMaps(int[] coord){
-        return new int[]{coord[0]/pixX, coord[1]/pixY};
+        return new int[]{coord[0]/pixX, (coord[1]-topOffset)/pixY < 0 ? 0:(coord[1]-topOffset)/pixY};
     }
     
     //Fastreader
