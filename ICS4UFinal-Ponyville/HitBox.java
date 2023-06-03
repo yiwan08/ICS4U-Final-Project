@@ -34,23 +34,23 @@ public class HitBox extends SuperSmoothMover
     public void move(){
         int x = getX(), y = getY();
         if(Greenfoot.isKeyDown("w")){
-            y -= 2;
+            y -= 1.5;
         }
         if(Greenfoot.isKeyDown("a")){
-            x -= 2;
+            x -= 1.5;
         }
         if(Greenfoot.isKeyDown("s")){
-            y += 2;
+            y += 1.5;
         }
         if(Greenfoot.isKeyDown("d")){
-            x += 2;
+            x += 1.5;
         }
         setLocation(x,y);
     }
     
     public void shoot(){
         if(Greenfoot.isKeyDown("z") && (time % 5 == 0)){
-            getWorld().addObject(new LightBall(true), getX(), getY());
+            getWorld().addObject(new LightBall(true, 270), getX(), getY());
         }
         
     }
