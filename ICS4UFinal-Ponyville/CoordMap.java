@@ -36,22 +36,19 @@ public class CoordMap{
          * 
          * Corresponding values:
          * 0   - clear
-         * 1   - blocked
-         * 2+n - item, numbered starting from n=0 (if 2, means item 0, etc.)
+         * 1   - main character spawn point
+         * 2   - blocked
+         * 3+n - item, numbered starting from n=0 (if 3 -> item 0, etc.)
+         * item 0: portal
          */
-        /*
-         * Change this part to read auto-generated stuff.
         try{
-            FastReader fr = new FastReader(new FileReader("./maps/"+mapId+".txt"));
-            for(int i=0; i<ysiz; i++){
-                for(int j=0; j<xsiz; j++){
+            FastReader fr = new FastReader(new FileReader("./maps/"+mapId+"-1.txt"));
+            for(int i=0; i<ysiz; i++)
+                for(int j=0; j<xsiz; j++)
                     mp[i][j] = new Node(fr.nextInt());
-                }
-            }
         }catch(FileNotFoundException e){
             System.out.println("Unexpected Exception! Your program is probably corrupt.");
         }
-        */
     }
     
     public int[] getSz(){
