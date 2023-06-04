@@ -49,9 +49,15 @@ public class MainCh extends SuperSmoothMover{
             magic = Math.min(magic+2, 100);
         else
             magic = Math.max(magic-2, 0);
-        if(!moving)
+        if(!moving){
             if(detect(gridPos))
                 turn++;
+            else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(gridPos[0], gridPos[1]).getType()>2){
+                System.out.println("yay");
+
+                return;
+            }
+        }
         if(dir!=-1)
             shift(gridPos);
     }
