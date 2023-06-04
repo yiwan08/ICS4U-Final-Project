@@ -1,14 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Portal here.
+ * Write a description of class floatingPanel here.
  * 
- * @author (your name) 
+ * @author Xuanxi Jiang
  * @version (a version number or a date)
  */
-public class Portal extends SuperSmoothMover{
+public class floatingPanel extends Actor{
+    public floatingPanel(int duration, int content){
+        
+    }
+    
     /**
-     * Act - do whatever the Portal wants to do. This method is called whenever
+     * Act - do whatever the floatingPanel wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act(){
