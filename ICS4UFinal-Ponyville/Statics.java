@@ -7,9 +7,43 @@
 public class Statics{
     //Current level (from 1 to 3), player position x, player position y.
     //Note: ppX and ppY are coordinates of Map, 
-    private static int lV, ppX, ppY, MP;
+    private static int lV, ppX, ppY, MP, HP;
     
+    /**
+     * returns the current HP of player.
+     * 
+     * @return int  The current HP of player
+     */
+    public static int getHP(){
+        return HP;
+    }
     
+    /**
+     * sets the HP of player to the given value
+     * 
+     * @param val   The HP value after changing
+     */
+    public static void setHP(int val){
+        HP = val;
+    }
+    
+    /**
+     * returns the current MP of player.
+     * 
+     * @return int  The current MP of player
+     */
+    public static int getMP(){
+        return MP;
+    }
+    
+    /**
+     * sets the MP of player to the given value
+     * 
+     * @param val   The MP value after changing
+     */
+    public static void setMP(int val){
+        MP = val;
+    }
     
     /**
      * sets the current level (map) of player. (1, 2, 3)
