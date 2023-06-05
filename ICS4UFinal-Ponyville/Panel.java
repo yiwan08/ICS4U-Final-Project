@@ -7,23 +7,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Panel extends Actor{
-    /**
-     * Act - do whatever the Panel wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void addedToWorld(World w){
-        setImage(rect());
-    }
+    GreenfootImage base;
+    private int maxX, maxY;
     
-    private GreenfootImage rect(){
-        int x = 1200, y = ((MainWorld)getWorld()).getMap().getSz()[1]+4;
-        GreenfootImage tmp = new GreenfootImage(x, y);
-        tmp.setColor(Color.RED);
-        tmp.fillRect(0, 0, x, y);
-        return tmp;
+    public void addedToWorld(World w){
+        base = new GreenfootImage("Banner.jpg");
+        maxX = 1200; maxY = ((MainWorld)getWorld()).getMap().getSz()[1]+4;
+        base.scale(maxX, maxY);
+        setImage(base);
     }
     
     public void act(){
-        // Add your action code here.
+        
+    }
+    
+    public void refresh(){
+
+//        SparkleEngine.drawLable(Color.WHITE, new Font("Courier New", Font.PLAIN, 20), 30, maxY/2 + 10, , GreenfootImage in)
     }
 }

@@ -7,7 +7,9 @@
 public class Statics{
     //Current level (from 1 to 3), player position x, player position y.
     //Note: ppX and ppY are coordinates of Map, 
-    private static int lV, ppX, ppY;
+    private static int lV, ppX, ppY, MP;
+    
+    
     
     /**
      * sets the current level (map) of player. (1, 2, 3)
