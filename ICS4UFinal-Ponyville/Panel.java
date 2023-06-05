@@ -9,12 +9,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Panel extends Actor{
     GreenfootImage base;
     private int maxX, maxY;
+    private Label HPVal, MPVal, ColectVal;
     
     public void addedToWorld(World w){
         base = new GreenfootImage("Banner.jpg");
         maxX = 1200; maxY = ((MainWorld)getWorld()).getMap().getSz()[1]+4;
         base.scale(maxX, maxY);
         setImage(base);
+        HPVal = new Label("HP: " + Statics.getHP(), 30);
+        MPVal = new Label("MP: ", 30);
+        ColectVal = new Label("Memory Orb Collected: ", 30);
+        w.addObject(HPVal, 60, maxY/2);
+        w.addObject(MPVal, maxX/3, maxY/2);
+        refresh();
     }
     
     public void act(){
@@ -22,7 +29,6 @@ public class Panel extends Actor{
     }
     
     public void refresh(){
-
-//        SparkleEngine.drawLable(Color.WHITE, new Font("Courier New", Font.PLAIN, 20), 30, maxY/2 + 10, , GreenfootImage in)
+        
     }
 }
