@@ -13,12 +13,13 @@ public class MainCh extends SuperSmoothMover{
     private int dir, xx, turn, magic;
     private final double spd = 1.5;
     private boolean moving;
+    private floatingPanel fp;
     
     public void addedToWorld(World w){
         this.setImage("TheHeart.png");
         moving = false;
         dir = -1; xx = 0; turn = 0;
-        int[] gridPos = {0, 6};
+        int[] gridPos = ((MainWorld)getWorld()).getMap().getMaps(new int[]{getX(), getY()});
         Statics.setPlayerCoords(gridPos);
         int[] Mid = ((MainWorld)w).getMap().getPixes(gridPos);
         setLocation(Mid[0], Mid[1]);
@@ -48,9 +49,15 @@ public class MainCh extends SuperSmoothMover{
             magic = Math.min(magic+2, 100);
         else
             magic = Math.max(magic-2, 0);
-        if(!moving)
+        if(!moving){
             if(detect(gridPos))
                 turn++;
+            else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(gridPos[0], gridPos[1]).getType()>2){
+                System.out.println("yay");
+
+                return;
+            }
+        }
         if(dir!=-1)
             shift(gridPos);
     }
@@ -74,22 +81,22 @@ public class MainCh extends SuperSmoothMover{
     private boolean detect(int[] gridPos){
         xx = 0;
         if(Greenfoot.isKeyDown("w")){
-            if(gridPos[1]-1>=1){//Temporary fix, change when map is implemented
+            if(gridPos[1]-1>=0 && ((MainWorld)getWorld()).getMap().getNode(gridPos[0], gridPos[1]-1).getType()!=2){
                 gridPos[1]--; dir = 2;
                 moving = true;
             }
         }else if(Greenfoot.isKeyDown("a")){
-            if(gridPos[0]-1>=0){
+            if(gridPos[0]-1>=0 && ((MainWorld)getWorld()).getMap().getNode(gridPos[0]-1, gridPos[1]).getType()!=2){
                 gridPos[0]--; dir = 0;
                 moving = true;
             }
         }else if(Greenfoot.isKeyDown("s")){
-            if(gridPos[1]+1<11){
+            if(gridPos[1]+1<11 && ((MainWorld)getWorld()).getMap().getNode(gridPos[0], gridPos[1]+1).getType()!=2){
                 gridPos[1]++; dir = 3;
                 moving = true;
             }
         }else if(Greenfoot.isKeyDown("d")){
-            if(gridPos[0]+1<20){
+            if(gridPos[0]+1<20 && ((MainWorld)getWorld()).getMap().getNode(gridPos[0]+1, gridPos[1]).getType()!=2){
                 gridPos[0]++; dir = 1;
                 moving = true;
             }
@@ -109,14 +116,14 @@ public class MainCh extends SuperSmoothMover{
                 setLocation((double)prevPos[0]+dirs[dir][0]*spd*xx, (double)prevPos[1]+dirs[dir][1]*spd*xx);
                 xx++;
             }else{
-                rsetPos();
+                rsetPos(gridPos);
             }
         }else{
             if(prevPos[0]+dirs[dir][0]*spd*xx>=realPos[0] && prevPos[1]+dirs[dir][1]*spd*xx>=realPos[1]){
                 setLocation((double)prevPos[0]+dirs[dir][0]*spd*xx, (double)prevPos[1]+dirs[dir][1]*spd*xx);
                 xx++;
             }else{
-                rsetPos();
+                rsetPos(gridPos);
             }
         }
     }
@@ -125,10 +132,13 @@ public class MainCh extends SuperSmoothMover{
      * Set the position of character on grid to the target grid.
      * Used by shift() method when the target position (animation) is reached or exceeded.
      */
-    private void rsetPos(){
+    private void rsetPos(int[] gridPos){
         moving = false;
         dir = -1; xx = 0;
         setLocation(realPos[0], realPos[1]);
         prevPos = realPos.clone();
+        if(((MainWorld)getWorld()).getMap().getNode(gridPos[0], gridPos[1]).getType()>2){
+            //call floating window to press z
+        }
     }
 }
