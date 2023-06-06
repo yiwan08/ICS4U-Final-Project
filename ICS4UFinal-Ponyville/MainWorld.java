@@ -27,12 +27,12 @@ public class MainWorld extends World{
         for(int i=0; i<20; i++){
             for(int j=0; j<11; j++){
                 addObject(sb[i][j] = new ShaderBox(mp.getSz()[0], mp.getSz()[1]), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
-                if(mp.getNode(i, j).getType()==1){
+                if(mp.getNode(new int[]{i, j}).getType()==1){
                     addObject(chara, mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
-                }else if(mp.getNode(i, j).getType()==2){
+                }else if(mp.getNode(new int[]{i, j}).getType()==2){
                     addObject(new Barrier(), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
-                }else if(mp.getNode(i, j).getType()>=3){
-                    addObject(new touchEquip(mp.getNode(i, j).getType()-2), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
+                }else if(mp.getNode(new int[]{i, j}).getType()>=3){
+                    addObject(new touchEquip(mp.getNode(new int[]{i, j}).getType()-3), mp.getPixes(new int[]{i, j})[0], mp.getPixes(new int[]{i, j})[1]);
                 }
             }
         }

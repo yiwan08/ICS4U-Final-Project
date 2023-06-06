@@ -52,7 +52,7 @@ public class MainCh extends SuperSmoothMover{
         if(!moving){
             if(detect(gridPos))
                 turn++;
-            else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(gridPos[0], gridPos[1]).getType()>2){
+            else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]}).getType()>2){
                 System.out.println("yay");
 
                 return;
@@ -81,22 +81,22 @@ public class MainCh extends SuperSmoothMover{
     private boolean detect(int[] gridPos){
         xx = 0;
         if(Greenfoot.isKeyDown("w")){
-            if(gridPos[1]-1>=0 && ((MainWorld)getWorld()).getMap().getNode(gridPos[0], gridPos[1]-1).getType()!=2){
+            if(gridPos[1]-1>=0 && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]-1}).getType()!=2){
                 gridPos[1]--; dir = 2;
                 moving = true;
             }
         }else if(Greenfoot.isKeyDown("a")){
-            if(gridPos[0]-1>=0 && ((MainWorld)getWorld()).getMap().getNode(gridPos[0]-1, gridPos[1]).getType()!=2){
+            if(gridPos[0]-1>=0 && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0]-1, gridPos[1]}).getType()!=2){
                 gridPos[0]--; dir = 0;
                 moving = true;
             }
         }else if(Greenfoot.isKeyDown("s")){
-            if(gridPos[1]+1<11 && ((MainWorld)getWorld()).getMap().getNode(gridPos[0], gridPos[1]+1).getType()!=2){
+            if(gridPos[1]+1<11 && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]+1}).getType()!=2){
                 gridPos[1]++; dir = 3;
                 moving = true;
             }
         }else if(Greenfoot.isKeyDown("d")){
-            if(gridPos[0]+1<20 && ((MainWorld)getWorld()).getMap().getNode(gridPos[0]+1, gridPos[1]).getType()!=2){
+            if(gridPos[0]+1<20 && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0]+1, gridPos[1]}).getType()!=2){
                 gridPos[0]++; dir = 1;
                 moving = true;
             }
@@ -137,7 +137,7 @@ public class MainCh extends SuperSmoothMover{
         dir = -1; xx = 0;
         setLocation(realPos[0], realPos[1]);
         prevPos = realPos.clone();
-        if(((MainWorld)getWorld()).getMap().getNode(gridPos[0], gridPos[1]).getType()>2){
+        if(((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]}).getType()>2){
             //call floating window to press z
         }
     }
