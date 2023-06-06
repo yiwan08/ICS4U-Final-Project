@@ -26,6 +26,9 @@ public class LightBall extends StraightDart
     public void act()
     {
         move(2.8);
+        if(getX() > 1250 || getX() < -50 || getY() > 700 || getY() < -25){
+            getWorld().removeObject(this);
+        }
     }
     
     public boolean getSide(){
