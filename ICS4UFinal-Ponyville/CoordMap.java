@@ -60,8 +60,8 @@ public class CoordMap{
     }
     
     //The method below is added by George
-    public Node getNode(int x, int y){
-        return mp[y][x];
+    public Node getNode(int[] in){
+        return mp[in[1]][in[0]];
     }
     
     public int[] getMaxes(){
