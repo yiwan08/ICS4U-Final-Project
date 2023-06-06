@@ -11,6 +11,27 @@ import greenfoot.*;
  */
 public class SparkleEngine{
     /**
+     * Draw a progress bar given various parameters.
+     * 
+     * @param tot   Total value of the progress bar (max value)
+     * @param rem   Remaining value of the progress bar (current value)
+     * @param len   Length of progress bar in pixels
+     * @param hig   Height of progress bar in pixels
+     * @param before    Base color of progress bar
+     * @param after Color of "current value".
+     * @return  GreenfootImage  Returns the progress bar as an GreenfootImage.
+     */
+    private GreenfootImage drawProgressBar(int tot, int rem, int len, int hig, Color before, Color after){//Draw Hp bar
+        GreenfootImage i = new GreenfootImage(len, hig);
+        i.setColor(before);
+        i.fillRect(0, 0, tot, hig);
+        i.setColor(after);
+        double perc = 1 - ((double)tot/rem);
+        i.fillRect(0, 0, (int)(perc*len), hig);
+        return i;
+    }
+    
+    /**
      * Set the transparency of an image according to brt.
      * 
      * @param img   The given image
