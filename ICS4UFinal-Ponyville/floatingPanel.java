@@ -7,7 +7,34 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class floatingPanel extends Actor{
-    public floatingPanel(int duration, int content){
+    private long prevTime, cnt, duration;
+    
+    private void init(int duration, GreenfootImage i){
+        setImage(i); cnt = 0;
+        if(duration==-1)
+            prevTime = -1;
+        this.duration = duration;
+    }
+    
+    /**
+     * @param duration  duration in seconds.
+     * @param content   the content of the floating panel.
+     */
+    public floatingPanel(int duration, String content){
+        GreenfootImage base = new GreenfootImage("textures/Box.png");
+        init(duration, base);
+    }
+    
+    /**
+     * @param duration  duration in seconds
+     * @param i         Image that this floating panel displays
+     */
+    public floatingPanel(int duration, GreenfootImage i){
+        init(duration, i);
+    }
+    
+    //Fade in, Fade out
+    public void animation(){
         
     }
     
