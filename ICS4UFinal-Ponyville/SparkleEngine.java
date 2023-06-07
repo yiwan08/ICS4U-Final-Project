@@ -24,10 +24,10 @@ public class SparkleEngine{
     public static GreenfootImage drawProgressBar(int tot, int rem, int len, int hig, Color before, Color after){//Draw Hp bar
         GreenfootImage i = new GreenfootImage(len, hig);
         i.setColor(before);
-        i.fillRect(0, 0, tot, hig);
+        i.fillRect(0, 0, len, hig);
         i.setColor(after);
-        double perc = 1 - ((double)tot/rem);
-        i.fillRect(0, 0, (int)(perc*len), hig);
+        double perc = ((double)rem/tot);
+        i.fillRect((int)(perc*len), 0, len, hig);
         return i;
     }
     

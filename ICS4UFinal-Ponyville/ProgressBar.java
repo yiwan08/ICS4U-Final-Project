@@ -6,40 +6,30 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Yawen
  * @version 20230606
  */
-public class ProgressBar extends Actor
-{
+public class ProgressBar extends Actor{
     GreenfootImage HPBar, MPBar;
     GreenfootImage img;
     int selection, barValue;
-    //private static Color BLUE = new Color (255, 216, 0);
-    //private static Color RED = new Color (200, 150, 2);
+    private static Color beforeHP = new Color (255, 216, 0);
+    private static Color afterHP = new Color (200, 150, 2);
     
     /**
      * Act - do whatever the ProgressBar wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act()
-    {
-        implementBar();
+    public void act(){
+        //implementBar();
+        if(selection==0)
+            setImage(SparkleEngine.drawProgressBar(50, Statics.getHP(), 160, 20, beforeHP, afterHP));
+        else if(selection==1)
+            setImage(SparkleEngine.drawProgressBar(100, Statics.getMP(), 160, 20, Color.BLUE, Color.RED));
     }
     
-    public ProgressBar(int select) {
-        img = new GreenfootImage(50, 20);
-        img.drawRect(0, 0, 50, 19);
-        setImage(img);
+    public ProgressBar(int select){
         selection = select;
-    }
-    // x, y, width, height
-    public void implementBar(){
-        if (selection == 0) {
-            barValue = Statics.getHP();
-        }
-        if (selection == 1) {
-            barValue = Statics.getMP();
-        }
-        img.setColor(Color.BLUE);
-        img.fillRect(0, 0, barValue, 20);
-        img.setColor(Color.RED);
-        img.fillRect(barValue, 0, 50, 20);
+        if(selection==0)
+            setImage(SparkleEngine.drawProgressBar(50, Statics.getHP(), 160, 20, beforeHP, afterHP));
+        else if(selection==1)
+            setImage(SparkleEngine.drawProgressBar(100, Statics.getMP(), 160, 20, Color.BLACK, Color.BLUE));
     }
 }
