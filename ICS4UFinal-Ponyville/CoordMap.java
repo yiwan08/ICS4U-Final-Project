@@ -59,7 +59,10 @@ public class CoordMap{
         return mp;
     }
     
-    //The method below is added by George
+    public void setNode(Node in, int[] cood){
+        mp[cood[0]][cood[1]] = in;
+    }
+    
     public Node getNode(int[] in){
         return mp[in[1]][in[0]];
     }
