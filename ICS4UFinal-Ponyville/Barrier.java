@@ -16,11 +16,7 @@ public class Barrier extends Actor{
     }
     
     private void decideLook(){
-        switch(Statics.getLevel()){
-            case 1:
-                img = new GreenfootImage("Barriers/Tree.png");
-                break;
-        }
+        img = new GreenfootImage("Barriers/"+Statics.getLevel()+".png");
         img.scale(((MainWorld)getWorld()).getMap().getSz()[0], ((MainWorld)getWorld()).getMap().getSz()[1]);
     }
 }
