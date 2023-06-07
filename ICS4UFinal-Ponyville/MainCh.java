@@ -10,7 +10,7 @@ public class MainCh extends SuperSmoothMover{
     
     private int[] realPos, prevPos;
     private double[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    private int dir, xx, turn, magic;
+    private int dir, xx, turn, magic, targMP;
     private final double spd = 1.5;
     private boolean moving;
     private floatingPanel fp;
@@ -25,6 +25,7 @@ public class MainCh extends SuperSmoothMover{
         setLocation(Mid[0], Mid[1]);
         prevPos = new int[]{getX(), getY()};
         realPos = new int[]{getX(), getY()};
+        targMP = 100;
     }
     
     public boolean isMoving(){
@@ -45,18 +46,21 @@ public class MainCh extends SuperSmoothMover{
         int x = getX(), y = getY();
         int[] gridPos = ((MainWorld)getWorld()).getMap().getMaps(new int[]{x, y});
         Statics.setPlayerCoords(gridPos);
+        if(Statics.getMP()!=targMP)
+            Statics.setMP(Statics.getMP()<targMP ? Statics.getMP()+1:Statics.getMP()-1);
         if(Greenfoot.isKeyDown("alt") && Statics.getMP()>0){
             magic = Math.min(magic+2, 100);
             if(magic==100){
                 ((MainWorld)getWorld()).damage();
                 Statics.setMP(Math.max(Statics.getMP()-1, 0));
+                targMP = Statics.getMP();
             }
         }else{
             magic = Math.max(magic-2, 0);
         }
         if(!moving){
             if(detect(gridPos)){
-                Statics.setMP(Math.min(100, Statics.getMP()+25));
+                targMP = Math.min(100, Statics.getMP()+25);
                 turn++;
             }else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]}).getType()>2){
                 System.out.println("yay");
