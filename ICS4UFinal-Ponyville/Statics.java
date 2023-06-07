@@ -7,7 +7,25 @@
 public class Statics{
     //Current level (from 1 to 3), player position x, player position y.
     //Note: ppX and ppY are coordinates of Map, 
-    private static int lV, ppX, ppY, MP, HP;
+    private static int lV, ppX, ppY, MP, HP, orbReim;
+    
+    /**
+     * Sets the number of remaining memory orbs.
+     * 
+     * @param val   the updated number of memory orbs.
+     */
+    public static void setOrb(int val){
+        orbReim = val;
+    }
+    
+    /**
+     * Returns the current number of remaining memory orbs.
+     * 
+     * @return int  the number of memory orbs remaining.
+     */
+    public static int getOrb(){
+        return orbReim;
+    }
     
     /**
      * returns the current HP of player.

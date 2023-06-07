@@ -63,8 +63,7 @@ public class MainCh extends SuperSmoothMover{
                 targMP = Math.min(100, Statics.getMP()+25);
                 turn++;
             }else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]}).getType()>2){
-                System.out.println("yay");
-                
+                ((MainWorld)getWorld()).goBattle(((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]}).getType()-3);
                 return;
             }
         }

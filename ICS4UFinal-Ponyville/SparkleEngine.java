@@ -11,6 +11,24 @@ import greenfoot.*;
  */
 public class SparkleEngine{
     /**
+     * convert the given image to greyscale
+     * 
+     * @param img   The given image
+     * @return GreenfootImage   Greyscale image
+     */
+    public static GreenfootImage greyIFy(GreenfootImage img){
+        GreenfootImage ret = new GreenfootImage(img);
+        for(int x=0; x<ret.getWidth(); x++){
+            for(int y=0; y<ret.getHeight(); y++){
+                Color cc = ret.getColorAt(x, y);
+                int tmp = (cc.getRed()+cc.getBlue()+cc.getGreen())/3;
+                ret.setColorAt(x, y, new Color(tmp, tmp, tmp, cc.getAlpha()));
+            }
+        }
+        return ret;
+    }
+    
+    /**
      * Draw a progress bar given various parameters.
      * 
      * @param tot   Total value of the progress bar (max value)
