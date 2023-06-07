@@ -45,16 +45,22 @@ public class MainCh extends SuperSmoothMover{
         int x = getX(), y = getY();
         int[] gridPos = ((MainWorld)getWorld()).getMap().getMaps(new int[]{x, y});
         Statics.setPlayerCoords(gridPos);
-        if(Greenfoot.isKeyDown("alt"))
+        if(Greenfoot.isKeyDown("alt") && Statics.getMP()>0){
             magic = Math.min(magic+2, 100);
-        else
+            if(magic==100){
+                ((MainWorld)getWorld()).damage();
+                Statics.setMP(Math.max(Statics.getMP()-1, 0));
+            }
+        }else{
             magic = Math.max(magic-2, 0);
+        }
         if(!moving){
-            if(detect(gridPos))
+            if(detect(gridPos)){
+                Statics.setMP(Math.min(100, Statics.getMP()+25));
                 turn++;
-            else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]}).getType()>2){
+            }else if(Greenfoot.isKeyDown("z") && ((MainWorld)getWorld()).getMap().getNode(new int[]{gridPos[0], gridPos[1]}).getType()>2){
                 System.out.println("yay");
-
+                
                 return;
             }
         }

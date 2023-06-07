@@ -16,7 +16,7 @@ public class Panel extends Actor{
         maxX = 1200; maxY = ((MainWorld)getWorld()).getMap().getSz()[1]+4;
         base.scale(maxX, maxY);
         setImage(base);
-        HPVal = new Label("HP: " + Statics.getHP(), 30);
+        HPVal = new Label("HP: ", 30);
         MPVal = new Label("MP: ", 30);
         ColectVal = new Label("Memory Orb Collected: ", 30);
         w.addObject(HPVal, 60, maxY/2);
