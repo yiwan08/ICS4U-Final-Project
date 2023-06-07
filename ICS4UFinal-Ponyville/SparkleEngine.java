@@ -21,7 +21,7 @@ public class SparkleEngine{
      * @param after Color of "current value".
      * @return  GreenfootImage  Returns the progress bar as an GreenfootImage.
      */
-    private GreenfootImage drawProgressBar(int tot, int rem, int len, int hig, Color before, Color after){//Draw Hp bar
+    public static GreenfootImage drawProgressBar(int tot, int rem, int len, int hig, Color before, Color after){//Draw Hp bar
         GreenfootImage i = new GreenfootImage(len, hig);
         i.setColor(before);
         i.fillRect(0, 0, tot, hig);

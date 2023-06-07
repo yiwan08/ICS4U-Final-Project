@@ -40,7 +40,9 @@ public class MainWorld extends World{
         bgmL1.setVolume(0);
         addObject(new Panel(), 1200/2, (getMap().getSz()[1]+4)/2);
         setBackground("BackGround/FarmLand.jpg");
-        setPaintOrder(Label.class, floatingPanel.class, Panel.class, ShaderBox.class, MainCh.class, Barrier.class, touchEquip.class);
+        addObject(new ProgressBar(0), 180, 32);
+        addObject(new ProgressBar(1), 500, 32);
+        setPaintOrder(Label.class, floatingPanel.class, ProgressBar.class, Panel.class, ShaderBox.class, MainCh.class, Barrier.class, touchEquip.class);
         update();
     }
     
